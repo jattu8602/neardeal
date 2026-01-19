@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "289415090303",
+    "project_id": "neardeal-3d5f0",
+    "storage_bucket": "neardeal-3d5f0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289415090303:android:e4783b6611cfb067592f4a",
+        "android_client_info": {
+          "package_name": "com.neardeal.org"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3Lq9uE13neBaKqT2JuV8ByXwr8Mo82Mo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
