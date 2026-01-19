@@ -5,7 +5,7 @@ import 'screens/product_room_selection_screen.dart';
 import 'screens/google_auth_screen.dart';
 import 'screens/mobile_number_screen.dart';
 import 'screens/notification_permission_screen.dart';
-import 'screens/home_screen.dart';
+import 'screens/main_navigation_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
         '/google-auth': (context) => const GoogleAuthScreen(),
         '/mobile-number': (context) => const MobileNumberScreen(),
         '/notifications': (context) => const NotificationPermissionScreen(),
-        '/home': (context) => const HomeScreen(),
+        '/home': (context) => const MainNavigationScreen(),
       },
     );
   }

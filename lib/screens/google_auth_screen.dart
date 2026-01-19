@@ -82,19 +82,13 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
               const SizedBox(height: 32),
               const Text(
                 'Sign in with Google',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 16),
               const Text(
                 'Continue with your Google account to get started',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                ),
+                style: TextStyle(fontSize: 16, color: Colors.grey),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 48),
@@ -106,15 +100,15 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                         height: 20,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            Colors.white,
+                          ),
                         ),
                       )
-                    : Image.asset(
-                        'assets/images/google_logo.png',
-                        height: 24,
-                        errorBuilder: (context, error, stackTrace) {
-                          return const Icon(Icons.g_mobiledata, size: 24);
-                        },
+                    : const Icon(
+                        Icons.g_mobiledata,
+                        size: 24,
+                        color: Colors.black87,
                       ),
                 label: Text(
                   _isLoading ? 'Signing in...' : 'Continue with Google',
@@ -132,19 +126,6 @@ class _GoogleAuthScreenState extends State<GoogleAuthScreen> {
                     side: BorderSide(color: Colors.grey.shade300),
                   ),
                   elevation: 1,
-                ),
-              ),
-              const SizedBox(height: 16),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/mobile-number');
-                },
-                child: const Text(
-                  'Skip for now',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey,
-                  ),
                 ),
               ),
             ],
