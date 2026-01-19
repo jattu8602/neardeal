@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:intl_phone_field/intl_phone_field.dart';
 
 class MobileNumberScreen extends StatefulWidget {
   const MobileNumberScreen({super.key});
@@ -61,43 +61,42 @@ class _MobileNumberScreenState extends State<MobileNumberScreen> {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 16),
-              const Text(
-                "We'll send you a verification code",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.grey,
-                ),
-                textAlign: TextAlign.center,
-              ),
               const SizedBox(height: 48),
               Form(
                 key: _formKey,
-                child: TextFormField(
+                child: IntlPhoneField(
                   controller: _phoneController,
-                  keyboardType: TextInputType.phone,
-                  inputFormatters: [
-                    FilteringTextInputFormatter.digitsOnly,
-                  ],
+                  initialCountryCode: 'IN', // India by default
+                  flagsButtonPadding: const EdgeInsets.only(left: 10),
+                  dropdownIconPosition: IconPosition.trailing,
                   decoration: InputDecoration(
-                    labelText: 'Mobile Number',
-                    hintText: '+1 234 567 8900',
-                    prefixIcon: const Icon(Icons.phone),
+                    labelText: 'Mobile Number *',
+                    hintText: '8602074069',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                     filled: true,
                     fillColor: Colors.grey.shade50,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 16,
+                    ),
+                    counterText: '',
                   ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your mobile number';
+                  validator: (phone) {
+                    // Mobile number is required
+                    if (phone == null || phone.number.isEmpty) {
+                      return 'Mobile number is required';
                     }
-                    if (value.length < 10) {
-                      return 'Please enter a valid mobile number';
+                    // Validate that mobile number has at least 10 digits
+                    final digitsOnly = phone.number.replaceAll(RegExp(r'[^\d]'), '');
+                    if (digitsOnly.length < 10) {
+                      return 'Mobile number must be at least 10 digits';
                     }
                     return null;
                   },
+                  keyboardType: TextInputType.phone,
+                  inputFormatters: [],
                 ),
               ),
               const SizedBox(height: 32),
@@ -127,19 +126,6 @@ class _MobileNumberScreenState extends State<MobileNumberScreen> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-              ),
-              const SizedBox(height: 16),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/notifications');
-                },
-                child: const Text(
-                  'Skip for now',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey,
-                  ),
-                ),
               ),
             ],
           ),

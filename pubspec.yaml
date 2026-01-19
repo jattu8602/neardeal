@@ -49,6 +49,9 @@ dependencies:
   # Shared preferences for storing onboarding state
   shared_preferences: ^2.3.2
 
+  # Phone number field with country picker
+  intl_phone_field: ^3.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
